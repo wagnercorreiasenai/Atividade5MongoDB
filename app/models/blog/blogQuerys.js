@@ -23,6 +23,12 @@ module.exports = {
 
     },
     listaBlog : function (req, res) {
-        res.json({message: 'Aqui é a listagem de blogs'});
+        
+        blog.find({}).exec(
+          function (error, docs) {
+              if (error)
+                  res.send(error);
+         res.json({docs});
+        })
     }
 };
