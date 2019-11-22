@@ -11,8 +11,6 @@ module.exports = {
         b.descricao = req.body.descricao;
         b.usuario.nome = req.body.nome_usuario;
         b.usuario.login = req.body.login;
-
-        //const crypto = require('crypto');
         b.usuario.senha = req.body.senha;
 
         b.save(function (error) {
