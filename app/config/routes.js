@@ -24,9 +24,9 @@ module.exports = function (server) {
     router.route('/blog').get(blogQuerys.listaBlog);
 
     //Post
-    var blogQuerys = require('../models/post/postQuerys');
-    router.route('/post').post(blogQuerys.addPost);
-    router.route('/post').get(blogQuerys.listaPost);
+    var postQuerys = require('../models/post/postQuerys');
+    router.route('/post').post(postQuerys.addPost);
+    router.route('/post').get(postQuerys.listaPost);
 
     
 };
