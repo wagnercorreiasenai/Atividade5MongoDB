@@ -8,9 +8,11 @@ module.exports = function (server) {
 
     /* Middleware para usar em todos os requests enviados para a nossa API- Mensagem Padrão */
     router.use(function (req, res, next) {
-        console.log(req);
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+        res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
         /*Sinaliza de que deve proceguir para a próxima rota*/
-        next(); 
+        next();
     });
 
     /* Rota de Teste */
@@ -22,5 +24,11 @@ module.exports = function (server) {
     var blogQuerys = require('../models/blog/blogQuerys');
     router.route('/blog').post(blogQuerys.addBlog);
     router.route('/blog').get(blogQuerys.listaBlog);
-    
+
+    //Post
+    var postQuerys = require('../models/post/postQuerys');
+    router.route('/post').post(postQuerys.addPost);
+    router.route('/post').get(postQuerys.listaPost);
+
+
 };
